@@ -1,0 +1,1333 @@
+/* Font declarations */
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('assets/fonts/lemon_milk_light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('assets/fonts/lemon_milk_thick.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --main-green: #85A687;
+    --main-red: #FFA3A3;
+    --main-blue: #8793FF;
+    --dark-gray: #393939;
+    --darkish-gray: #585858;
+    --medium-gray: #8F8F8F;
+    --light-gray: #C0C0C0;
+    --white: #FFFFFF;
+    --yellow: #FFE08F;
+    --purple: #E3AFFF;
+    
+    --border-radius: 4px;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --section-spacing: 20px;
+    --card-spacing: 15px;
+    
+    /* Font variables */
+    --font-primary: 'Lemon Milk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-weight-light: 300;
+    --font-weight-bold: 700;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/assets/fonts/font.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/assets/fonts/lemon_milk_light.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/assets/fonts/lemon_milk_thick.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-light);
+    background-color: var(--dark-gray);
+    color: var(--white);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Header styles */
+.header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--white);
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+}
+
+.workspace-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.label {
+    color: var(--light-gray);
+    font-weight: 500;
+}
+
+.value {
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Section styles */
+.section {
+    margin-bottom: var(--section-spacing);
+    background-color: rgba(57, 57, 57, 0.7);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.section-header:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.projects-section .section-header {
+    background-color: rgba(133, 166, 135, 0.2); /* Green tint */
+}
+
+.domains-section .section-header {
+    background-color: rgba(255, 163, 163, 0.2); /* Red tint */
+}
+
+.apps-section .section-header {
+    background-color: rgba(135, 147, 255, 0.2); /* Blue tint */
+}
+
+.workflows-section .section-header {
+    background-color: hsla(279, 100%, 84%, 0.2); /* Blue tint */
+}
+
+.settings-section .section-header {
+    background-color: var(--darkish-gray); /* Medium gray */
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.5px;
+}
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+}
+
+.section-header .section-info {
+    color: var(--light-gray);
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.expand-btn {
+    background: none;
+    border: 1px solid var(--medium-gray);
+    color: var(--white);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.expand-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 15px;
+}
+
+.section-content.expanded {
+    max-height: 2000px; /* Adjust based on content */
+    padding: 15px;
+}
+
+/* Projects section */
+.list-container {
+    margin-top: 0;
+}
+
+.list-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--light-gray);
+}
+
+.list {
+    list-style: none;
+}
+
+.list-item {
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.list-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.list-item.selected {
+    background-color: rgba(133, 166, 135, 0.3);
+    border-left: 3px solid var(--main-green);
+}
+
+/* Project buttons container */
+.project-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+/* Project load indicator */
+.project-load-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4AFF4A; /* Brighter green color */
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Load button */
+.load-btn {
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: none;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.load-btn:hover {
+    background-color: rgba(135, 147, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.load-btn:active {
+    transform: scale(0.95);
+}
+
+/* Cards container */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--card-spacing);
+}
+
+/* Card styles */
+.card {
+    background-color: rgba(57, 57, 57, 0.9);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.domain-card {
+    border-left: 3px solid var(--main-red);
+}
+
+.app-card {
+    border-left: 3px solid var(--main-blue);
+}
+
+/* Locked card styles */
+.card.locked {
+    opacity: 0.8;
+}
+
+.lock-icon {
+    margin-left: 8px;
+    font-size: 14px;
+    color: var(--main-red);
+}
+
+.lock-message {
+    font-size: 12px;
+    color: var(--main-red);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Checkout banner */
+.checkout-banner {
+    background-color: rgba(255, 163, 163, 0.2);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkout-message {
+    color: var(--light-gray);
+    font-size: 14px;
+}
+
+.checkout-project-btn {
+    background-color: var(--main-red);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-project-btn:hover {
+    background-color: rgba(255, 163, 163, 0.8);
+    transform: scale(1.05);
+}
+
+.checkout-project-btn:active {
+    transform: scale(0.95);
+}
+
+/* Project checkout button */
+.checkout-btn {
+    background-color: var(--main-red);
+    color: var(--white);
+    border: none;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-btn:hover {
+    background-color: rgba(255, 163, 163, 0.8);
+    transform: scale(1.05);
+}
+
+.checkout-btn:active {
+    transform: scale(0.95);
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-name {
+    flex: 1;
+}
+
+.workflow-card {
+    border-left: 3px solid var(--purple);
+}
+
+.workflow-card .card-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workflow-card .card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 15px;
+}
+
+.workflow-card .card-content.expanded {
+    max-height: 2000px;
+    padding: 15px;
+}
+
+.card-header {
+    display: flex;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.5px;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--light-gray);
+}
+
+.info-item {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Package styles */
+.packages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.package-item {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.package-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.package-title {
+    font-weight: 600;
+}
+
+.package-status {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.package-status:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.package-status:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.checked-out {
+    background-color: rgba(133, 166, 135, 0.3);
+    color: var(--main-green);
+}
+
+.not-checked-out {
+    background-color: rgba(255, 163, 163, 0.3);
+    color: var(--main-red);
+}
+
+.package-ref {
+    font-size: 13px;
+    color: var(--light-gray);
+}
+
+/* Package selection dropdown */
+.package-select {
+    width: 100%;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.package-select:focus {
+    outline: none;
+    border-color: var(--main-blue);
+}
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Workflow styles */
+.workflow-description {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: var(--light-gray);
+}
+
+.inputs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Branch input styles */
+.branch-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: var(--light-gray);
+}
+
+.branch-input {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    width: 100%;
+}
+
+.branch-input:focus {
+    outline: none;
+    border-color: var(--main-blue);
+}
+
+/* Auth key select styles */
+.auth-key-select {
+    width: 50%;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.auth-key-select:focus {
+    outline: none;
+    border-color: var(--main-blue);
+}
+
+/* Settings styles */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.setting-label {
+    font-weight: var(--font-weight-light);
+}
+
+.setting-description {
+    font-size: 12px;
+    color: var(--light-gray);
+    margin-top: 4px;
+}
+
+.setting-warning {
+    font-size: 12px;
+    color: var(--main-red);
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.reset-state-item {
+    border-left: 3px solid var(--main-red);
+}
+
+.reset-state-btn {
+    background-color: var(--main-red);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reset-state-btn:hover {
+    background-color: rgba(255, 100, 100, 0.9);
+    transform: scale(1.05);
+}
+
+.reset-state-btn:active {
+    transform: scale(0.95);
+}
+
+/* Toggle switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--white);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--main-green);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* Status indicator */
+.status-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.status-indicator.visible {
+    opacity: 1;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--main-green);
+}
+
+.status-dot.connecting {
+    background-color: var(--main-blue);
+    animation: pulse 1.5s infinite;
+}
+
+.status-dot.disconnected {
+    background-color: var(--main-red);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Error message */
+.error-message {
+    padding: 20px;
+    background-color: rgba(255, 163, 163, 0.3);
+    border: 1px solid var(--main-red);
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    color: var(--white);
+}
+
+/* No project message */
+.no-project-message {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    color: var(--light-gray);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Reset Localhost App Info */
+.app-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.app-display {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.reset-button {
+    padding: 8px 16px;
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover:not(:disabled) {
+    background-color: rgba(135, 147, 255, 0.8);
+}
+
+.reset-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Version information styles */
+.version-info-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.version-details {
+    margin-top: 10px;
+}
+
+.version-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.version-label {
+    color: var(--light-gray);
+    font-weight: var(--font-weight-light);
+}
+
+.version-value {
+    color: var(--yellow);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Branch history styles */
+.branch-history-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.branch-history-select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C0C0C0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+}
+
+.branch-history-select:focus {
+    outline: none;
+    border-color: var(--main-blue);
+    box-shadow: 0 0 0 2px rgba(135, 147, 255, 0.2);
+}
+
+.branch-history-select option {
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+/* Reset state button */
+.reset-state-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.setting-warning {
+    color: var(--main-red);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.reset-state-btn {
+    padding: 8px 16px;
+    background-color: var(--main-red);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-state-btn:hover {
+    background-color: rgba(255, 163, 163, 0.8);
+}
+
+/* Domain action buttons */
+.domain-action-container {
+    margin-top: 20px;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.domain-action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: var(--white);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    font-weight: var(--font-weight-light);
+}
+
+.domain-action-btn.reset-btn {
+    background-color: var(--main-red);
+}
+
+.domain-action-btn.reload-btn {
+    background-color: var(--main-blue);
+}
+
+.domain-action-btn:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.domain-action-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.domain-action-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Execute button for workflows */
+.workflow-execute-btn {
+    padding: 8px 16px;
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.workflow-execute-btn:hover:not(:disabled) {
+    background-color: rgba(135, 147, 255, 0.8);
+}
+
+.workflow-execute-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Workflow input styles */
+.input-group {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--light-gray);
+    font-weight: var(--font-weight-light);
+}
+
+.workflow-input {
+    padding: 10px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    width: 100%;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow-input:focus {
+    outline: none;
+    border-color: var(--main-blue);
+    box-shadow: 0 0 0 2px rgba(135, 147, 255, 0.2);
+}
+
+.workflow-input::placeholder {
+    color: var(--medium-gray);
+    opacity: 0.7;
+}
+
+.workflow-select {
+    padding: 10px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C0C0C0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow-select:focus {
+    outline: none;
+    border-color: var(--main-blue);
+    box-shadow: 0 0 0 2px rgba(135, 147, 255, 0.2);
+}
+
+.workflow-select option {
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+/* ElementJS indicator */
+.package-elementjs {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    color: var(--yellow);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Environment Variables Toggle Button */
+.env-toggle-btn {
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 12px;
+    /* margin-left: auto; */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.env-toggle-btn:hover {
+    background-color: rgba(135, 147, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.env-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* App Card Content Container - for smooth transitions */
+.app-card .card-content {
+    position: relative;
+    min-height: 200px;
+}
+
+/* App Content and Env Content Containers */
+.app-content,
+.env-content {
+    display: none;
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.app-content.active,
+.env-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Environment Variables List */
+.env-list {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.env-list:empty::before {
+    content: "No environment variables defined";
+    color: var(--medium-gray);
+    font-style: italic;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+.env-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--main-blue);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    flex-direction: row;
+}
+
+.env-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(2px);
+}
+
+.env-item:last-child {
+    margin-bottom: 0;
+}
+
+.env-key {
+    font-weight: var(--font-weight-bold);
+    color: var(--main-blue);
+    flex: 1;
+    min-width: 0;
+    margin-right: 10px;
+    word-break: break-word;
+}
+
+.env-value {
+    color: var(--light-gray);
+    flex: 2;
+    word-break: break-all;
+    padding: 0 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 4px 8px;
+    border-radius: 3px;
+    min-width: 0;
+}
+
+.delete-env-btn {
+    background-color: var(--main-red);
+    color: var(--white);
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.delete-env-btn:hover {
+    background-color: rgba(255, 100, 100, 0.9);
+    transform: scale(1.1);
+}
+
+.delete-env-btn:active {
+    transform: scale(0.9);
+}
+
+/* Environment Variable Value Container */
+.env-value-container {
+    flex: 2;
+    position: relative;
+    min-width: 0;
+}
+
+/* Environment Variable Value Input */
+.env-value-input {
+    width: 100%;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--main-blue);
+    border-radius: 3px;
+    color: var(--white);
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.env-value-input:focus {
+    outline: none;
+    border-color: var(--main-blue);
+    box-shadow: 0 0 0 2px rgba(135, 147, 255, 0.2);
+}
+
+/* Environment Variable Actions Container */
+.env-actions {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+/* Edit Environment Variable Button */
+.edit-env-btn {
+    background-color: var(--main-blue);
+    color: var(--white);
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.edit-env-btn:hover {
+    background-color: rgba(135, 147, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.edit-env-btn:active {
+    transform: scale(0.9);
+}
+
+/* Add Environment Variable Form */
+.add-env-form {
+    display: flex;
+    /* width: 100px; */
+    gap: 8px;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.env-input {
+    /* flex: 1; */
+    width: 40%;
+    padding: 10px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    color: var(--white);
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.env-input:focus {
+    outline: none;
+    border-color: var(--main-blue);
+    box-shadow: 0 0 0 2px rgba(135, 147, 255, 0.2);
+}
+
+.env-input::placeholder {
+    color: var(--medium-gray);
+    opacity: 0.7;
+}
+
+.add-env-btn {
+    background-color: var(--main-green);
+    color: var(--white);
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: var(--font-weight-light);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.add-env-btn:hover {
+    background-color: rgba(133, 166, 135, 0.8);
+    transform: scale(1.05);
+}
+
+.add-env-btn:active {
+    transform: scale(0.95);
+}
+
+/* Inputs list container */
+.inputs-list {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    margin-top: 12px;
+}
+
+/* Create workflow buttons */
+.workflow-execute-btn.create-btn {
+    background-color: var(--main-green);
+    margin-top: 20px;
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.workflow-execute-btn.create-btn:hover:not(:disabled) {
+    background-color: rgba(133, 166, 135, 0.8);
+    transform: translateY(-2px);
+}
+
+.workflow-execute-btn.create-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.workflow-execute-btn.install-btn {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    margin-top: 20px;
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.workflow-execute-btn.install-btn:hover:not(:disabled) {
+    background-color: rgba(255, 224, 143, 0.8);
+    transform: translateY(-2px);
+}
+
+.workflow-execute-btn.install-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Workflow card expanded state */
+.workflow-card .card-content.expanded {
+    padding: 20px;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSphere Console</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/console/client/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">JSphere Console</h1>
+            <div class="workspace-info">
+                <span class="label">Workspace:</span>
+                <span id="workspace-namespace" class="value"></span>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="section projects-section">
+                <div class="section-header">
+                    <div class="section-title-container">
+                        <h2 class="section-title">Projects</h2>
+                        <span class="section-info" id="projects-info"></span>
+                    </div>
+                    <div class="section-controls">
+                        <button id="expand-projects" class="expand-btn">-</button>
+                    </div>
+                </div>
+                <div id="projects-content" class="section-content">
+                    <div class="list-container">
+                        <h3 class="list-title">All Projects</h3>
+                        <ul id="all-projects" class="list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section domains-section">
+                <div class="section-header">
+                    <div class="section-title-container">
+                        <h2 class="section-title">Domains</h2>
+                        <span class="section-info" id="domains-info"></span>
+                    </div>
+                    <div class="section-controls">
+                        <button id="expand-domains" class="expand-btn">-</button>
+                    </div>
+                </div>
+                <div id="domains-content" class="section-content">
+                    <div id="domains-container" class="cards-container"></div>
+                </div>
+            </section>
+
+            <section class="section apps-section">
+                <div class="section-header">
+                    <div class="section-title-container">
+                        <h2 class="section-title">Applications</h2>
+                        <span class="section-info" id="apps-info"></span>
+                    </div>
+                    <div class="section-controls">
+                        <button id="expand-apps" class="expand-btn">-</button>
+                    </div>
+                </div>
+                <div id="apps-content" class="section-content">
+                    <div id="apps-container" class="cards-container"></div>
+                </div>
+            </section>
+
+            <section class="section workflows-section">
+                <div class="section-header">
+                    <h2 class="section-title">Workflows</h2>
+                    <div class="section-controls">
+                        <button id="expand-workflows" class="expand-btn">-</button>
+                    </div>
+                </div>
+                <div id="workflows-content" class="section-content">
+                    <div id="workflows-container" class="cards-container"></div>
+                </div>
+            </section>
+
+            <section class="section settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">Settings</h2>
+                    <div class="section-controls">
+                        <button id="expand-settings" class="expand-btn">-</button>
+                    </div>
+                </div>
+                <div id="settings-content" class="section-content">
+                    <div id="settings-container" class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-label">Auto Reset on Save</div>
+                                <div class="setting-description">Automatically resets server on file saves</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="auto-reset-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-item version-info-item">
+                            <div class="setting-info">
+                                <div class="setting-label">Version Information</div>
+                                <div class="version-details">
+                                    <div class="version-item">
+                                        <span class="version-label">JSphere:</span>
+                                        <span class="version-value" id="jsphere-version">v1.0.0</span>
+                                    </div>
+                                    <div class="version-item">
+                                        <span class="version-label">ElementJS:</span>
+                                        <span class="version-value" id="elementjs-version">v1.0.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item branch-history-item">
+                            <div class="setting-info">
+                                <div class="setting-label">Recent Branches</div>
+                                <div class="setting-description">Select one of the last 10 commit branches</div>
+                            </div>
+                            <select id="branch-history-select" class="branch-history-select">
+                                <option value="">Select a branch</option>
+                                <!-- Branch options will be populated dynamically -->
+                            </select>
+                        </div>
+                        
+                        <div class="setting-item reset-state-item">
+                            <div class="setting-info">
+                                <div class="setting-label">Reset Application State</div>
+                                <div class="setting-description">Reset the application to its initial state (clears all project data)</div>
+                                <div class="setting-warning">Warning: This action cannot be undone!</div>
+                            </div>
+                            <button id="reset-state-btn" class="reset-state-btn">Reset State</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        
+        <div id="status-indicator" class="status-indicator">
+            <div id="status-dot" class="status-dot"></div>
+            <span id="status-text">Connected</span>
+        </div>
+    </div>
+
+    <script type="module" src="/console/client/components/pages/index.js"></script>
+</body>
+</html>
